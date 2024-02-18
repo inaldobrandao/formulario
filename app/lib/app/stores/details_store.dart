@@ -21,7 +21,7 @@ class DetailsStore extends ChangeNotifier {
   Future<void> createClient(Client client) async {
     try {
       await uno.post(
-        'http://localhost:4444/client',
+        'http://localhost:3000/client',
         data: client.toJson(),
       );
       state = DetailsState.saveSuccess;
@@ -35,7 +35,7 @@ class DetailsStore extends ChangeNotifier {
   Future<void> updateClient(Client client) async {
     try {
       await uno.put(
-        'http://localhost:4444/client',
+        'http://localhost:3000/client',
         data: client.toJson(),
       );
       state = DetailsState.saveSuccess;

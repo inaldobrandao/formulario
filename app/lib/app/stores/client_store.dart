@@ -9,9 +9,10 @@ class ClientStore extends ChangeNotifier {
   var clients = <Client>[];
 
   Future<void> fetchAllClients() async {
-    final response = await uno.get('http://10.0.2.2:4444/client');
+    final response = await uno.get('http://localhost:3000/client');
     final list = response.data as List;
     clients = list.map(Client.fromJson).toList();
+    clients.sort((a, b) => a.id.compareTo(b.id));
     notifyListeners();
   }
 }
